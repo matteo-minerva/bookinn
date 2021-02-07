@@ -1,0 +1,15 @@
+//Google fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&family=Roboto&display=swap");
+
+//Utilities and global styling
+@import "variables";
+@import "mixins";
+@import "globals";
+
+//Components
+@import "navbar";
+@import "header";
+@import "query-results";
+@import "single-book";
+@import "error";
+@import "loading";

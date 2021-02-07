@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &::after,
+  &::before {
+    box-sizing: inherit;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: inline-block;
+  font-family: inherit;
+  color: inherit;
+  font-weight: 600;
+}
+
+strong {
+  font-family: inherit;
+  font-weight: 600;
+}
+em {
+  font-family: inherit;
+  font-style: italic;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: $black;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: $darkGray;
+
+  @include media(">=tablet") {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+
+  @include media(">=tablet") {
+    font-size: 1.625rem;
+  }
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.28rem;
+  letter-spacing: -0.2px;
+
+  @include media(">=tablet") {
+    margin-bottom: 0.4rem;
+    font-size: 1.125rem;
+  }
+
+  @include media(">=desktop") {
+    margin-bottom: 0.6rem;
+    font-size: 1.125rem;
+  }
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.9;
+
+  @include media(">=tablet") {
+    font-size: 1rem;
+  }
+}
+
+main {
+  h3 {
+    font-size: 1.125rem;
+    padding-bottom: 2.5rem;
+    padding-top: 3.4375rem;
+
+    @include media(">=tablet") {
+      padding-top: 4.0625rem;
+      padding-bottom: 2.8125rem;
+    }
+
+    @include media(">=desktop") {
+      padding-top: 5.375rem;
+      padding-bottom: 2.125rem;
+    }
+  }
+}
+
+.cta {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.remaining-vh {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 16.85375rem);
+
+  @include media(">=tablet") {
+    height: calc(100vh - 18.274375rem);
+  }
+
+  @include media(">=desktop") {
+    height: calc(100vh - 23.474375rem);
+  }
+}
+
+.container {
+  padding-left: 2.375rem;
+  padding-right: 2.375rem;
+  max-width: 112.5rem;
+  margin: 0 auto;
+
+  @include media(">=tablet") {
+    padding-left: 4.75rem;
+    padding-right: 4.75rem;
+  }
+
+  @include media(">=desktop") {
+    padding-left: 15.625rem;
+    padding-right: 15.625rem;
+  }
+}

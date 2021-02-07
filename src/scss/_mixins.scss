@@ -1,0 +1,19 @@
+@mixin media($breakpoint) {
+  @if $breakpoint == ">mobile" {
+    @media only screen and (min-width: 375.99px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == ">=tablet" {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == ">=desktop" {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}

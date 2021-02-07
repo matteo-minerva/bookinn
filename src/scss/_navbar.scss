@@ -1,0 +1,33 @@
+.navbar {
+  padding-top: 1.625rem;
+  padding-bottom: 1.625rem;
+
+  @include media(">=tablet") {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  @include media(">=desktop") {
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 2.8125rem;
+      width: 100%;
+      height: auto;
+
+      @include media(">=tablet") {
+        width: 3.125rem;
+      }
+    }
+
+    h1 {
+      margin-left: 0.5rem;
+    }
+  }
+}
