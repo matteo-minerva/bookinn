@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import homeImg from "../images/home-img.svg";
+import { Context } from "../context";
+import Loading from "../components/Loading";
 
 const Home = () => {
-  //TODO AGGIUNGI QUALCOSA UOMO
+  const { isLoading } = useContext(Context);
+
+  if (isLoading) return <Loading />;
   return (
     <>
       <main className="home container remaining-vh">
