@@ -42,8 +42,8 @@ const ContextProvider = (props) => {
     const MAX_RESULTS = 20;
 
     event.preventDefault();
-    setError({ ...error, isError: false });
     setIsLoading(true);
+    setError({ ...error, isError: false });
     setQueryTitle(query.text);
 
     //Creates URL
@@ -55,8 +55,8 @@ const ContextProvider = (props) => {
       .get(url)
       .then((response) => {
         const { items } = response.data;
-        setIsLoading(false);
         if (response.data.totalItems === 0) {
+          setIsLoading(false);
           setError({
             ...error,
             isError: true,
@@ -67,6 +67,7 @@ const ContextProvider = (props) => {
         } else {
           setResults(items);
           history.push(`/search/${query.text.replace(" ", "+")}`);
+          setIsLoading(false);
         }
       })
       .catch((err) => {
