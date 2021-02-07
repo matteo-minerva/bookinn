@@ -10,7 +10,6 @@ const ContextProvider = (props) => {
   const [query, setQuery] = useState({ text: "", type: "book" });
   const [queryTitle, setQueryTitle] = useState("");
   const [results, setResults] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [singleBook, setSingleBook] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({

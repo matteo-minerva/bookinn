@@ -1,0 +1,48 @@
+.home {
+  max-width: 1600px;
+  text-align: left;
+  line-height: 1.5;
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+  }
+
+  &__image {
+    display: none;
+
+    @include media(">=desktop") {
+      display: flex;
+      align-items: center;
+      width: 50%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    line-height: 1.7;
+
+    @include media(">=desktop") {
+      width: 50%;
+    }
+
+    h2 {
+      text-transform: none;
+    }
+
+    p:last-child {
+      margin-top: 1rem;
+
+      ul {
+        margin-top: 0.5rem;
+        margin-left: 2rem;
+      }
+    }
+  }
+}

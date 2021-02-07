@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../images/open-book.svg";
+import { Link } from "react-router-dom";
+import { Context } from "../context";
 
 const Navbar = () => {
+  const { history } = useContext(Context);
+
   return (
     <nav className="navbar container">
-      <div className="navbar__logo">
+      <Link to="/" className="navbar__logo" onClick={() => history.push("/")}>
         <img src={logo} alt="BookInn logo" />
         <h1>BookInn</h1>
-      </div>
+      </Link>
     </nav>
   );
 };
