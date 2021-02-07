@@ -20,7 +20,7 @@
 
 ## About
 
-<a href="https://bookinn.vercel.app"><img src="#"/></a>
+<a href="https://bookinn.vercel.app"><img src="https://i.imgur.com/vETummX.png"/></a>
 Si tratta di un'app che permette la ricerca e visualizzazione di ogni libro appartenente al catalogo di Google Books.
 
 ### Realizzato con
