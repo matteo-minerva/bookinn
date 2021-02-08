@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import defaultCover from "./images/default-cover.png";
@@ -129,6 +129,13 @@ const ContextProvider = (props) => {
       });
   };
 
+  //Stores the values it gets so that when one refreshes the page doesnt come up with an error
+  useEffect(() => {
+    window.localStorage.setItem("results-list", JSON.stringify(results));
+    window.localStorage.setItem("query-title", JSON.stringify(queryTitle));
+    window.localStorage.setItem("single-book", JSON.stringify(singleBook));
+  });
+
   return (
     <Context.Provider
       value={{
@@ -140,6 +147,8 @@ const ContextProvider = (props) => {
         queryTitle,
         results,
         setResults,
+        setQueryTitle,
+        setSingleBook,
         handleTextChange,
         handleRadioChange,
         getData,

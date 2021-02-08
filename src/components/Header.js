@@ -28,13 +28,14 @@ const Header = () => {
             </IconContext.Provider>
           </button>
 
-          <div className="form__radio-buttons" onChange={handleRadioChange}>
+          <div className="form__radio-buttons">
             <input
               type="radio"
               name="query"
               id="book"
               value="book"
               checked={query.type === "book"}
+              onChange={handleRadioChange}
             />
             <label htmlFor="book">Book</label>
 
@@ -44,6 +45,7 @@ const Header = () => {
               id="author"
               value="author"
               checked={query.type === "author"}
+              onChange={handleRadioChange}
             />
             <label htmlFor="author">Author</label>
           </div>

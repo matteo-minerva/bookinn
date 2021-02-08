@@ -7,19 +7,30 @@ import Error from "../pages/Error";
 import Loading from "../components/Loading";
 
 const SingleBook = () => {
-  const { singleBook, isLoading } = useContext(Context);
+  const { singleBook, setSingleBook, isLoading, history } = useContext(Context);
 
+  //Sets page title
   useEffect(() => {
     if (isLoading) document.title = "BookInn // Loading...";
     if (singleBook) document.title = `BookInn // ${singleBook.title}`;
-    else document.title = "BookInn // Error";
-  }, [singleBook, isLoading]);
+    if (history.location.pathname !== `/book/${singleBook.id}`)
+      document.title = "BookInn // Error";
+  }, [singleBook, isLoading, history.location.pathname]);
+
+  //If you refresh on a page you already loaded, content will be desplayed
+  useEffect(() => {
+    const tempSingleBook = JSON.parse(localStorage.getItem("single-book"));
+    setSingleBook(tempSingleBook);
+  }, [setSingleBook]);
 
   if (isLoading) {
     return <Loading />;
   }
 
-  if (Object.keys(singleBook).length !== 0) {
+  if (
+    Object.keys(singleBook).length !== 0 &&
+    history.location.pathname === `/book/${singleBook.id}`
+  ) {
     return (
       <div className="book container">
         <div className="wrapper">

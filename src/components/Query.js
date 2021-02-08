@@ -6,18 +6,35 @@ import Loading from "../components/Loading";
 import Error from "../pages/Error";
 
 const Query = () => {
-  const { results, queryTitle, getSpecificBook, isLoading } = useContext(
-    Context
-  );
+  const {
+    history,
+    results,
+    setResults,
+    queryTitle,
+    setQueryTitle,
+    getSpecificBook,
+    isLoading,
+  } = useContext(Context);
 
+  //Sets the page title
   useEffect(() => {
     if (isLoading) document.title = "BookInn // Loading...";
     if (queryTitle)
       document.title = `BookInn // ${
         `Results matching "${queryTitle}"` || "No items found"
       }`;
-    else document.title = "BookInn // Error";
-  }, [queryTitle, isLoading]);
+    if (history.location.pathname !== `/search/${queryTitle}`)
+      document.title = "BookInn // Error";
+  }, [queryTitle, isLoading, history.location.pathname]);
+
+  //If you refresh on a page you already loaded, content will be desplayed
+  useEffect(() => {
+    const tempResults = JSON.parse(localStorage.getItem("results-list"));
+    setResults(tempResults);
+
+    const tempQueryTitle = JSON.parse(localStorage.getItem("query-title"));
+    setQueryTitle(tempQueryTitle);
+  }, [setResults, setQueryTitle]);
 
   let books = results.map((item) => {
     //Checks if the book has a cover, otherwise a default one will be applied
@@ -43,7 +60,10 @@ const Query = () => {
     return <Loading />;
   }
 
-  if (results.length !== 0) {
+  if (
+    results.length !== 0 &&
+    history.location.pathname === `/search/${queryTitle}`
+  ) {
     return (
       <main className="container">
         {/* Query title */}
