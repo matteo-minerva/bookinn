@@ -37,7 +37,7 @@ const ContextProvider = (props) => {
     });
   };
 
-  //Fetches data once the form is submitted
+  //Fetches data for Query.js once the form is submitted
   const getData = (event) => {
     const MAX_RESULTS = 20;
 
@@ -82,6 +82,7 @@ const ContextProvider = (props) => {
         history.push("/error");
       });
 
+    //Cleans up the input form
     setQuery({ text: "", type: "book" });
   };
 

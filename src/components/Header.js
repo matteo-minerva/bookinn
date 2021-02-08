@@ -4,12 +4,9 @@ import { BiSearch } from "react-icons/bi";
 import { Context } from "../context";
 
 const Header = () => {
-  const {
-    query,
-    getData,
-    handleTextChange,
-    handleRadioChange,
-  } = useContext(Context);
+  const { query, getData, handleTextChange, handleRadioChange } = useContext(
+    Context
+  );
 
   return (
     <header className="header">
@@ -21,7 +18,8 @@ const Header = () => {
             type="text"
             placeholder="Search..."
             value={query.text}
-            pattern="^[^\s]+[-a-zA-Z\s]+([-a-zA-Z]+)*$" //One or more char that is not whitespace
+            //Allows input if entered one or more char that is not whitespace
+            pattern="^[^\s]+[-a-zA-Z\s]+([-a-zA-Z]+)*$"
             onChange={handleTextChange}
           />
           <button className="btn-submit" type="submit">
@@ -30,14 +28,13 @@ const Header = () => {
             </IconContext.Provider>
           </button>
 
-          <div className="form__radio-buttons">
+          <div className="form__radio-buttons" onChange={handleRadioChange}>
             <input
               type="radio"
               name="query"
               id="book"
               value="book"
               checked={query.type === "book"}
-              onChange={handleRadioChange}
             />
             <label htmlFor="book">Book</label>
 
@@ -47,7 +44,6 @@ const Header = () => {
               id="author"
               value="author"
               checked={query.type === "author"}
-              onChange={handleRadioChange}
             />
             <label htmlFor="author">Author</label>
           </div>

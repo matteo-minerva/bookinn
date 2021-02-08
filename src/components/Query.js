@@ -71,7 +71,8 @@ const Query = () => {
         </div>
       </main>
     );
-  } else return <Error />;
+  }
+  return <Error />;
 };
 
 export default Query;

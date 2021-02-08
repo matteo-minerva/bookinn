@@ -91,9 +91,12 @@ const SingleBook = () => {
         </div>
       </div>
     );
-  } else return <Error />;
+  }
+
+  return <Error />;
 };
 
+//Styling for when the book isn't available in the shop
 const notAllowedStyle = {
   cursor: "not-allowed",
   backgroundColor: "#c4c4c4",
