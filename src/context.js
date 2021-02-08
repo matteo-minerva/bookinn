@@ -48,7 +48,7 @@ const ContextProvider = (props) => {
 
     //Creates URL
     if (query.type === "author") url += `inauthor:`;
-    url += `${query.text.replace(" ", "+")}&maxResults=${MAX_RESULTS}`;
+    url += `${query.text.replace(/ /g, "+")}&maxResults=${MAX_RESULTS}`;
 
     //Actual request
     axios
@@ -66,7 +66,7 @@ const ContextProvider = (props) => {
           history.push("/error");
         } else {
           setResults(items);
-          history.push(`/search/${query.text.replace(" ", "+")}`);
+          history.push(`/search/${query.text.replace("/ /g", "+")}`);
           setIsLoading(false);
         }
       })
