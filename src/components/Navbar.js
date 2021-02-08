@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import logo from "../images/open-book.png";
+import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import { Context } from "../context";
 
