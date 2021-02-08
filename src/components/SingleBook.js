@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../context";
 import parse from "html-react-parser";
 import { IconContext } from "react-icons";
@@ -8,6 +8,12 @@ import Loading from "../components/Loading";
 
 const SingleBook = () => {
   const { singleBook, isLoading } = useContext(Context);
+
+  useEffect(() => {
+    if (isLoading) document.title = "BookInn // Loading...";
+    if (singleBook) document.title = `BookInn // ${singleBook.title}`;
+    else document.title = "BookInn // Error";
+  }, [singleBook, isLoading]);
 
   if (isLoading) {
     return <Loading />;

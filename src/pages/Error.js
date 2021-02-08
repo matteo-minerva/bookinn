@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../context";
 import errorImg from "../images/error-image.svg";
 import { Link } from "react-router-dom";
 
 const Error = () => {
   const { error, history } = useContext(Context);
+
+  useEffect(() => {
+    if (error.isError) document.title = `BookInn // ${error.name || "Error"}`;
+  }, [error]);
 
   return (
     <>

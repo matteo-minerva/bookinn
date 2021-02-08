@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../context";
 import { Link } from "react-router-dom";
 import defaultCover from "../images/default-cover.png";
@@ -9,6 +9,15 @@ const Query = () => {
   const { results, queryTitle, getSpecificBook, isLoading } = useContext(
     Context
   );
+
+  useEffect(() => {
+    if (isLoading) document.title = "BookInn // Loading...";
+    if (queryTitle)
+      document.title = `BookInn // ${
+        `Results matching "${queryTitle}"` || "No items found"
+      }`;
+    else document.title = "BookInn // Error";
+  }, [queryTitle, isLoading]);
 
   let books = results.map((item) => {
     //Checks if the book has a cover, otherwise a default one will be applied

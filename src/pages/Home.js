@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import homeImg from "../images/home-img.svg";
 import { Context } from "../context";
 import Loading from "../components/Loading";
 
 const Home = () => {
   const { isLoading } = useContext(Context);
+
+  useEffect(() => {
+    if (isLoading) document.title = "BookInn // Loading...";
+    document.title = `BookInn // Homepage`;
+  }, [isLoading]);
 
   if (isLoading) return <Loading />;
   return (
