@@ -5,7 +5,7 @@
 <br />
 <p align="center">
   <a href="https://bookinn.vercel.app/">
-    <img src="/logo.png" alt="Screenshot" style="border-radius: 9999px;">
+    <img src="/logo.png" alt="Screenshot">
   </a>
 
   <h3 align="center">BookInn</h3>
